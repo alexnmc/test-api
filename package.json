@@ -17,5 +17,5 @@
     "data-store": "^4.0.3",
     "express": "^4.18.1"
   },
-  "heroku-run-build-script": true
+  "heroku-run-build-script": false
 }
