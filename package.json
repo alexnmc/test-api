@@ -8,9 +8,6 @@
     "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "browser": {
-    "test-api": false
-  },
   "engines": {
     "node": "16.17.0"
   },
