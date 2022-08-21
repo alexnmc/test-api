@@ -9,6 +9,9 @@
     "build": "webpack",
     "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
   },
+  "browser": {
+  "test-api": false   
+  },
   "engines": {
     "node": "16.17.0"
   },
