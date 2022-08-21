@@ -6,7 +6,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "build": "webpack",
     "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
   },
   "engines": {
@@ -17,5 +16,6 @@
   "dependencies": {
     "data-store": "^4.0.3",
     "express": "^4.18.1"
-  }
+  },
+  "heroku-run-build-script": true
 }
