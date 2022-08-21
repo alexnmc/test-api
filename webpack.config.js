@@ -16,6 +16,7 @@ module.exports = ({ mode } = { mode: "production" }) => {
                 new HtmlWebpackPlugin({
                     template: "./public/index.html"
                 }),
-            ]
+            ],
+            resolve: { extensions: ["", ".ts", ".tsx", ".js", ".json"], }
         }
 };
