@@ -11,8 +11,11 @@ const [id, setId] = React.useState(null)
 
 
 const handleClick = () => {
-  setMessage('')
   axios.post('/test/mock', {data, id}).then(res => setMessage(res.data))
+}
+
+const deleteData = () => {
+  axios.delete(`/test/${id}`).then(res => setMessage(res.data))
 }
 
 React.useEffect(() => {
@@ -20,7 +23,9 @@ React.useEffect(() => {
   setId(id)
 },[])
 
-return (
+
+
+  return (
     <div className="container">
       <h4 style={{height: '40px', textAlign: 'center'}}>{message}</h4>
       <div className="App">
@@ -41,6 +46,7 @@ return (
         <button onClick={() => {
           setData("")
           setMessage("")
+          deleteData()
         }}>
           reset
         </button>

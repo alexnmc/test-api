@@ -16,7 +16,14 @@ dataRouter.post('/mock', (req, res) => {
 
 dataRouter.get('/:id', (req, res) => {  
     const mockResponse = store.get(req.params.id)  
-    return mockResponse ? res.status(200).send(mockResponse) : res.send("data was deleted")
+    return mockResponse ? res.status(200).send(mockResponse) : res.send("no data")
 })
+
+dataRouter.delete('/:id', (req, res) => {  
+    console.log(req.params.id)
+    store.del(req.params.id)  
+    return res.status(200).send("data deleted")
+})
+
 
 module.exports = dataRouter
