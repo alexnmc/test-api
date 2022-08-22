@@ -1,16 +1,26 @@
 import './App.css';
 import axios from 'axios'
 import React from 'react'
+import { v4 as uuidv4 } from 'uuid';
 
 function App() {
 
 const [data, setData] = React.useState('')
 const [message, setMessage] = React.useState('')
+const [id, setId] = React.useState(null)
+
+
 const handleClick = () => {
-  axios.post('/test/mock', {data}).then(res => setMessage(res.data))
+  setMessage('')
+  axios.post('/test/mock', {data, id}).then(res => setMessage(res.data))
 }
-  
-  return (
+
+React.useEffect(() => {
+  const id = uuidv4()
+  setId(id)
+},[])
+
+return (
     <div className="container">
       <h4 style={{height: '40px', textAlign: 'center'}}>{message}</h4>
       <div className="App">

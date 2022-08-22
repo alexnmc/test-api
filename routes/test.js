@@ -9,16 +9,14 @@ dataRouter.post('/mock', (req, res) => {
     } catch (e) {
         return res.status(201).send("not a valid json")
     }
-    store.set('data', req.body.data)
-    return res.status(201).send(`make get request to: https://mock-api-response.herokuapp.com/test to receive your data`)
+    store.set(req.body.id, req.body.data)
+    return res.status(201).send(`make get request to: https://mock-api-response.herokuapp.com/test/${req.body.id}`)
 })
 
 
-dataRouter.get('/', (req, res) => {  
-    const mockResponse = store.get('data')  
-    const jsonResponse = JSON.parse(mockResponse)
-    return res.status(200).send(jsonResponse)
+dataRouter.get('/:id', (req, res) => {  
+    const mockResponse = store.get(req.params.id)  
+    return mockResponse ? res.status(200).send(mockResponse) : res.send("data was deleted")
 })
-
 
 module.exports = dataRouter
