@@ -14,6 +14,17 @@ dataRouter.post('/mock', (req, res) => {
 })
 
 
+dataRouter.delete('/delete', (req, res) => {  
+    store.clear()  
+    return res.status(200).send("all data deleted")
+})
+
+dataRouter.get('/all', (req, res) => {  
+   const allData = store.get(); 
+   return res.status(200).send(allData)
+})
+
+
 dataRouter.get('/:id', (req, res) => {  
     const mockResponse = store.get(req.params.id)  
     const jsonRes = mockResponse && JSON.parse(mockResponse)
@@ -29,15 +40,7 @@ dataRouter.delete('/:id', (req, res) => {
     return null
 })
 
-dataRouter.delete('/delete', (req, res) => {  
-    store.clear()  
-    return res.status(200).send("all data deleted")
-})
 
-dataRouter.get('/all', (req, res) => {  
-   const allData = store.get(); 
-   return res.status(200).send(allData)
-})
 
 
 module.exports = dataRouter
