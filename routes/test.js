@@ -1,16 +1,19 @@
 const express = require('express')
 const dataRouter = express.Router()
 const store = require('data-store')({ path: process.cwd() + '/mocks.json' })
+const validator = require('validator');
+
 
 
 dataRouter.post('/mock', (req, res) => {  
-    try {
-        JSON.parse(req.body.data);
-    } catch (e) {
-        return res.status(201).send("not a valid json")
+    const parsedData = validator.isJSON(req.body.data)
+    if(parsedData){
+        store.set(req.body.id, parsedData)
+        return res.status(201).send(`make get request to: https://mock-api-response.herokuapp.com/test/${req.body.id}`)
+    }else{
+        return res.status(201).send('not a valid json')
     }
-    store.set(req.body.id, req.body.data)
-    return res.status(201).send(`make get request to: https://mock-api-response.herokuapp.com/test/${req.body.id}`)
+   
 })
 
 
