@@ -21,8 +21,12 @@ dataRouter.get('/:id', (req, res) => {
 })
 
 dataRouter.delete('/:id', (req, res) => {  
-    store.del(req.params.id)  
-    return res.status(200).send("data deleted")
+    const mockResponse = store.get(req.params.id)  
+    if(mockResponse){
+        store.del(req.params.id)  
+        return res.status(200).send("data deleted")
+    }
+    return null
 })
 
 
