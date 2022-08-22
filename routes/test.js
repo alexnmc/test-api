@@ -16,7 +16,8 @@ dataRouter.post('/mock', (req, res) => {
 
 dataRouter.get('/:id', (req, res) => {  
     const mockResponse = store.get(req.params.id)  
-    return mockResponse ? res.status(200).send(mockResponse) : res.send("no data")
+    const jsonRes = JSON.parse(mockResponse)
+    return mockResponse ? res.status(200).send(jsonRes) : res.send("no data")
 })
 
 dataRouter.delete('/:id', (req, res) => {  
