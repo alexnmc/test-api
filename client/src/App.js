@@ -33,7 +33,7 @@ React.useEffect(() => {
     <div className="container">
       <h4 style={{height: '40px', textAlign: 'center'}}>{message}</h4>
       <div className="App">
-        <label for="story">Define your mock response here:</label>
+        <label style={{marginBottom: '5px'}}>Define your mock response here:</label>
         <textarea 
           id="input1" 
           name="input1" 
