@@ -1,7 +1,7 @@
 import './App.css';
 import axios from 'axios'
 import React from 'react'
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from 'uuid'
 
 function App() {
 
@@ -12,7 +12,6 @@ const [id, setId] = React.useState(null)
 
 const handleClick = () => {
   if(data){
-    alert(`review: ${data}`)
     axios.post('/test/mock', {data, id}).then(res => setMessage(res.data))
   }else{
     setMessage("enter mock response")
