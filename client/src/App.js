@@ -11,7 +11,11 @@ const [id, setId] = React.useState(null)
 
 
 const handleClick = () => {
-  axios.post('/test/mock', {data, id}).then(res => setMessage(res.data))
+  if(data){
+    axios.post('/test/mock', {data, id}).then(res => setMessage(res.data))
+  }else{
+    setMessage("enter mock response")
+  }
 }
 
 const deleteData = () => {
