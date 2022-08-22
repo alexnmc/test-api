@@ -8,7 +8,7 @@ const validator = require('validator');
 dataRouter.post('/mock', (req, res) => {  
     const parsedData = validator.isJSON(req.body.data)
     if(parsedData){
-        store.set(req.body.id, parsedData)
+        store.set(req.body.id, req.body.data)
         return res.status(201).send(`make get request to: https://mock-api-response.herokuapp.com/test/${req.body.id}`)
     }else{
         return res.status(201).send('not a valid json')
