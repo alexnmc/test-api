@@ -37,7 +37,7 @@ React.useEffect(() => {
         <textarea 
           id="input1" 
           name="input1" 
-          rows="10" 
+          rows="12" 
           cols="50"
           value={data}
           onChange={(e) => {
