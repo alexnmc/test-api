@@ -6,15 +6,14 @@ function App() {
 
 const [data, setData] = React.useState('')
 const [message, setMessage] = React.useState('')
-
 const handleClick = () => {
   axios.post('/test/mock', {data}).then(res => setMessage(res.data))
 }
   
   return (
     <div className="container">
+      <h4 style={{height: '40px', textAlign: 'center'}}>{message}</h4>
       <div className="App">
-        <h4 style={{height: '20px'}}>{message}</h4>
         <label for="story">Define your mock response here:</label>
         <textarea 
           id="input1" 
