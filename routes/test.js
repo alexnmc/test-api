@@ -21,7 +21,6 @@ dataRouter.get('/:id', (req, res) => {
 })
 
 dataRouter.delete('/:id', (req, res) => {  
-    console.log(req.params.id)
     store.del(req.params.id)  
     return res.status(200).send("data deleted")
 })
