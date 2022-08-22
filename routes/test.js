@@ -16,7 +16,7 @@ dataRouter.post('/mock', (req, res) => {
 
 dataRouter.get('/:id', (req, res) => {  
     const mockResponse = store.get(req.params.id)  
-    const jsonRes = JSON.parse(mockResponse)
+    const jsonRes = mockResponse && JSON.parse(mockResponse)
     return mockResponse ? res.status(200).send(jsonRes) : res.send("no data")
 })
 
