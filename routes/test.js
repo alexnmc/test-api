@@ -10,7 +10,7 @@ dataRouter.post('/mock', (req, res) => {
         return res.status(201).send("not a valid json")
     }
     store.set(req.body.id, req.body.data)
-    return res.status(201).send(`make get request to: https://mock-api-response.herokuapp.com/test/${req.body.id}`)
+    return res.status(201).send(`make get request to: https://https://test-api-pzl5.onrender.com/test/${req.body.id}`)
 })
 
 
